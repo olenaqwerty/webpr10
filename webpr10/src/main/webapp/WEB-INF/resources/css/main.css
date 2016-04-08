@@ -1,0 +1,366 @@
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+
+body {
+	color: #000000;
+	background: #ececec;
+	font-family: "robotoRegular";
+	line-height: 1
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	main, menu, nav, section, summary {
+	display: block
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0
+}
+
+a {
+	background-color: transparent
+}
+
+a:active, a:hover {
+	outline: 0
+}
+
+img {
+	border: 0;
+	vertical-align: middle
+}
+
+#sdHeader {
+	min-width: 995px
+}
+
+.headerBar {
+	z-index: 89;
+	min-height: 71px;
+	border-bottom: 1px solid #f9f9f9
+}
+
+.headerBar, .dock {
+	background: #fff;
+	width: 100%;
+	position: relative;
+	-webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5)
+}
+
+.headerBar .col-xs-7 {
+	width: 30% !important
+}
+
+.topBar {
+	max-height: 47px;
+}
+
+.logoWidth {
+	width: 280px
+}
+
+.topBar {
+	height: 71px;
+	padding: 0 0 20px 0;
+	border-top: 14px solid #fff;
+	overflow: visible !important;
+	margin: 0 auto;
+	vertical-align: baseline;
+}
+
+.topBar>div {
+	float: left;
+}
+
+.topBar .searchformInput {
+	font-style: normal !important
+}
+
+.ie9 .topBar .searchformInput {
+	font-style: normal !important
+}
+
+.ie10 .topBar .searchformInput {
+	font-style: normal !important
+}
+
+.dock .topBar {
+	border-top: 13px solid #f6f6f6
+}
+
+#cartHeader {
+	margin-right: 20px
+}
+
+@media ( min-width : 1000px) and (max-width: 1160px) {
+	.logoWidth {
+		width: 250px
+	}
+}
+
+.col-xs-4, .col-xs-6, .col-xs-7, .col-xs-20 {
+	position: relative;
+	min-height: 1px;
+	padding-left: 8px;
+	padding-right: 8px
+}
+
+.col-xs-7 {
+	box-sizing: border-box
+}
+
+.col-xs-7 {
+	width: 30% !important
+}
+
+.menuBar {
+	display: block;
+	float: left;
+	position: absolute;
+	margin-top: 5px;
+	left: 12px
+}
+
+.menuBar>a>i {
+	width: 26px;
+	height: 2px;
+	background: #605f5d;
+	margin-bottom: 4px;
+	display: block
+}
+
+.menuBar>a>span {
+	display: block;
+	font-size: 11px;
+	line-height: 20px;
+	margin-left: -1px;
+	text-align: center;
+	color: #a0a0a0;
+	font-family: "robotoRegular";
+	margin-top: -4px
+}
+
+.menuBar>a {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+	padding: 6px 9px 0px
+}
+
+.menuBar:hover {
+	background-color: #f5f5f5;
+	border-radius: 3px
+}
+
+.sdLogo {
+	height: 45px;
+	width: 150px;
+	display: block;
+	margin: 0 auto;
+	margin-left: 50px;
+	cursor: pointer
+}
+
+.sdLogo {
+	margin-left: 64px !important
+}
+
+.searchform {
+	float: left;
+	width: 100%
+}
+
+.searchformInput {
+	line-height: 0
+}
+
+.searchformButton {
+	height: 41px
+}
+
+.rippleGrey {
+	overflow: hidden;
+	position: relative
+}
+
+.rfloat {
+	float: right
+}
+
+.rhslink {
+	margin: -5px 15px 0 0
+}
+
+#cartHeader {
+	padding: 0
+}
+
+#cartHeader .cartLinks {
+	float: left
+}
+
+#cartHeader a {
+	float: left
+}
+
+li#cartHeader .menuLinks {
+	border-radius: 50%;
+	position: relative;
+	height: 42px;
+	width: 42px;
+	right: -2px;
+	top: 5px;
+	border-radius: 50%;
+	border: 1px solid #e4e4e4
+}
+
+.rhslink {
+	float: right;
+	list-style: none;
+	margin-top: -6px;
+	display: table
+}
+
+.rhslink>li {
+	float: right;
+	text-align: center;
+	position: relative;
+	text-transform: capitalize;
+	cursor: pointer
+}
+
+.rhslink>li>div, .rhslink>li>a {
+	padding: 4px 9px 1px 9px;
+	color: #605f5d;
+	display: block;
+	border-radius: 3px;
+	text-decoration: none
+}
+
+.rhslink>li>.ink {
+	background: rgba(0, 0, 0, 0.2)
+}
+
+.rhslink>li>div:hover, .rhslink>li>div.active, .rhslink>li>a:hover,
+	.rhslink>li>a.active {
+	background: #f5f5f5
+}
+
+.rhslink>li>div .sd-icon, .rhslink>li>a .sd-icon {
+	font-size: 22px;
+	position: relative
+}
+
+.rhslink>li>div .sd-icon-expand-arrow, .rhslink>li>a .sd-icon-expand-arrow
+	{
+	font-size: 14px
+}
+
+.rhslink>li>div i>small, .rhslink>li>a i>small {
+	background: #299fdc;
+	font-size: 19px;
+	line-height: 13px;
+	width: 15px;
+	height: 15px;
+	float: right;
+	color: #fff;
+	border-radius: 10px;
+	z-index: 1;
+	text-align: center;
+	position: absolute;
+	right: -10px;
+	top: -5px;
+	font-family: "Roboto", Helvetica, Arial, Helvetica, sans-serif
+}
+
+.rhslink>li>div>span, .rhslink>li>a>span {
+	display: block;
+	font-size: 11px;
+	color: #a0a0a0;
+	padding-top: 4px;
+	font-family: robotoRegular;
+	text-transform: capitalize;
+	line-height: 20px
+}
+
+.rhslink li#cartHeader .menuLinks {
+	border-radius: 50%;
+	position: relative;
+	height: 42px;
+	width: 42px;
+	right: -2px;
+	top: 5px;
+	border-radius: 50%;
+	border: 1px solid #e4e4e4
+}
+
+.rhslink li#cartHeader .menuLinks:hover {
+	background: #f5f5f5
+}
+
+.rhslink li#cartHeader .menuLinks .sd-icon-shopping-cart {
+	font-size: 31px;
+	top: 2px;
+	right: 4px
+}
+
+.rhslink li#cartHeader .menuLinks .sd-icon-nfilledcart {
+	font-size: 23px;
+	color: #2cb2e4;
+	position: absolute;
+	top: 0px;
+	right: 6px
+}
+
+.circleCountCart {
+	height: 17px;
+	width: auto;
+	font-size: 11px;
+	min-width: 17px;
+	display: inline-block;
+	padding: 2px;
+	line-height: 12px;
+	font-family: "robotoMedium";
+	color: #fff;
+	border-radius: 10px;
+	position: absolute;
+	top: 9px;
+	right: 10px
+}
+
+#cartHeader {
+	padding: 0
+}
+
+#cartHeader .cartLinks {
+	float: left
+}
+
+#cartHeader a {
+	float: left
+}
+
+.sd-icon-shopping-cart:before {
+	content: "\f1e5"
+}
+
+
+.widgetShopByPrice {
+	background: #fff;
+    display: table;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.csf-style-widget-wrapper pull-left col-xs-6  marTopBtm20{
+position: relative;
+    min-height: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
