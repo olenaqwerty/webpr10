@@ -17,7 +17,7 @@
 			</div>
 
 		</div>
-				<%@ include file='promotionsCarousel.jsp'%>
+				<%-- <%@ include file='promotionsCarousel.jsp'%> --%>
 		<!--Shop by Price ===================================================================  -->
 
 		<div class="widgetShopByPrice">
