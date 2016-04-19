@@ -22,7 +22,6 @@ public class HomeController {
 		model.addAttribute("promotionDtos", promotionDtoService.loadPromotionDtos());
 		Integer phonesNum = productService.countAllPhones();
 		model.addAttribute("phonesNum", phonesNum);
-
 		/*
 		 * List<Product> list = productService.getAll();
 		 * System.out.println(list.get(0));
