@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +25,8 @@ import com.snapdeal.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/products")
-public class ProductController {
+public class ProductController extends AbstractPageController {
+	private final static Logger LOG = LogManager.getLogger(ProductController.class);
 
 	@Autowired
 	ProductService productService;
@@ -43,19 +48,21 @@ public class ProductController {
 		return "product";
 	}
 
-	@RequestMapping()
-	public String showProducts(Model model) {
+	@RequestMapping("/")
+	public String showProducts(HttpServletRequest request, Model model) {
+		LOG.debug("ProductController.showProducts");
+		addBreadcrumb(Pages.productsPage, request.getServletPath());
 		model.addAttribute("products", productService.getAll());
 		return "products";
 
 	}
 
-	/*@RequestMapping(value = "/addStarRating", method = RequestMethod.GET)
-	public String getAddStarRating(Model model) {
-		StarRatingFormDto rating = new StarRatingFormDto();
-		model.addAttribute("rating", rating);
-		return "addProduct";
-	}*/
+	/*
+	 * @RequestMapping(value = "/addStarRating", method = RequestMethod.GET)
+	 * public String getAddStarRating(Model model) { StarRatingFormDto rating =
+	 * new StarRatingFormDto(); model.addAttribute("rating", rating); return
+	 * "addProduct"; }
+	 */
 
 	@RequestMapping(value = "/{productId}", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("rating") StarRatingFormDto rating, Model model) {

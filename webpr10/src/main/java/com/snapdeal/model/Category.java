@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Category {
+public class Category implements GenericModel{
 
 	@Id
 	@Column(name = "category_id")
@@ -20,7 +20,7 @@ public class Category {
 	private int id;
 
 	@Column(name="category_name")
-	private String categoryName;
+	private String name;
 
 	@Column(name="category_pic")
 	private String categoryPic;
@@ -36,12 +36,12 @@ public class Category {
 		this.id = id;
 	}
 
-	public String getCategoryName() {
-		return categoryName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setName(String categoryName) {
+		this.name = categoryName;
 	}
 
 	public String getCategoryPic() {
@@ -64,7 +64,7 @@ public class Category {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((categoryName == null) ? 0 : categoryName.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -78,10 +78,10 @@ public class Category {
 		if (getClass() != obj.getClass())
 			return false;
 		Category other = (Category) obj;
-		if (categoryName == null) {
-			if (other.categoryName != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!categoryName.equals(other.categoryName))
+		} else if (!name.equals(other.name))
 			return false;
 		if (id != other.id)
 			return false;
@@ -90,7 +90,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", categoryName=" + categoryName + "]";
+		return "Category [id=" + id + ", categoryName=" + name + "]";
 	}
 
 }
