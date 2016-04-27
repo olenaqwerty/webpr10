@@ -17,7 +17,7 @@ public class ProductDaoImpl extends GenericDaoImpl<Product, Integer> implements 
 	public int countAllPhones() {
 		return ((Long) getSession()
 				.createQuery(
-						"select count(*) from " + this.daoType.getName() + " where category.categoryName = 'phones'")
+						"select count(*) from " + this.daoType.getName() + " where category.name = 'phones'")
 				.uniqueResult()).intValue();
 	}
 

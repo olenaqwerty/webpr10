@@ -5,10 +5,10 @@ public class Breadcrumb {
 	private String url;
 	private String name;
 
-	public Breadcrumb(final String url, final String name)
+	public Breadcrumb(final String name, final String url)
 	{
-		this.url = url;
 		this.name = name;
+		this.url = url;
 	}
 
 

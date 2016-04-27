@@ -29,7 +29,7 @@
 				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
 					<div class="thumbnail">
 						<div class="caption">
-							<h3>${product.productName}</h3>
+							<h3>${product.name}</h3>
 							<img src="<c:url value="/resources/images/1.jpg"></c:url>"
 								alt="image" />
 							<p>${product.productDescription}</p>

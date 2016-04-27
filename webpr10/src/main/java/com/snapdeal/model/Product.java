@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 @NamedQueries({
 		@NamedQuery(name = "Product.getByPriceRange", query = "select p from Product p where p.productPrice >:low and p.productPrice <:high") })*/
 @Entity
-public class Product {
+public class Product implements GenericModel{
 
 	@Column(name = "product_id")
 	@Id
@@ -25,7 +25,7 @@ public class Product {
 	private String productImage;
 
 	@Column(name = "product_name")
-	private String productName;
+	private String name;
 
 	@Column(name = "product_price")
 	private BigDecimal productPrice;
@@ -65,12 +65,12 @@ public class Product {
 		this.productImage = productImage;
 	}
 
-	public String getProductName() {
-		return productName;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setName(String productName) {
+		this.name = productName;
 	}
 
 	public BigDecimal getProductPrice() {
@@ -111,7 +111,7 @@ public class Product {
 		int result = 1;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
-		result = prime * result + ((productName == null) ? 0 : productName.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((vendor == null) ? 0 : vendor.hashCode());
 		return result;
 	}
@@ -135,10 +135,10 @@ public class Product {
 				return false;
 		} else if (!productId.equals(other.productId))
 			return false;
-		if (productName == null) {
-			if (other.productName != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!productName.equals(other.productName))
+		} else if (!name.equals(other.name))
 			return false;
 		if (vendor == null) {
 			if (other.vendor != null)
@@ -150,7 +150,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [productId=" + productId + ", productName=" + productName + ", productDescription="
+		return "Product [productId=" + productId + ", productName=" + name + ", productDescription="
 				+ productDescription + ", productPrice=" + productPrice + ", qtyInStock=" + qtyInStock + ", vendor="
 				+ vendor + ", category=" + category + "]";
 	}
