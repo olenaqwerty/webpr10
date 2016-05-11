@@ -25,8 +25,6 @@ public class HomeController extends AbstractPageController{
 	@RequestMapping("/welcome")
 	public String showHomePage(HttpServletRequest request, Model model) {
         LOG.debug("HomeController.showHomePage");
-        //TOASK: is it a good idea to get path from the outside. from the request?
-        // or would it be better to form it inside in code?
         addBreadcrumb(Pages.homePage, request.getRequestURL().toString());        
 		model.addAttribute("promotionDtos", promotionDtoService.loadPromotionDtos());
 		Integer phonesNum = productService.countAllPhones();

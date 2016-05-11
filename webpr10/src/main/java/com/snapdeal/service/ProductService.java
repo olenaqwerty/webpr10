@@ -12,8 +12,10 @@ public interface ProductService extends GenericService<Product, Integer> {
 
 	List<Product> getProductByPriceRange(BigDecimal from, BigDecimal to);
 
-	void addStarRating(StarRatingFormDto rating);
+	void setStarRating(StarRatingFormDto rating, Integer i);
 
+	Integer getStarRatingValue(Integer productId);
+	
 	// List<Product> getProductsByCategory(String category);
 
 }

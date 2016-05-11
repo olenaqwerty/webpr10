@@ -27,7 +27,7 @@ public abstract class AbstractPageController {
 		LOG.debug("adding product breadcrumb to breadcrumb list");
 		Breadcrumb breadcrumb = null;
 		try{
-			breadcrumb = BreadcrumbBuilder.getBreadcrumbs(page, path);
+			breadcrumb = BreadcrumbFactory.getBreadcrumbs(page, path);
 		}catch(NullPointerException npe){
 			LOG.debug("breadcrumb was not created. " + npe.getMessage());
 			return;
@@ -39,7 +39,7 @@ public abstract class AbstractPageController {
 		LOG.debug("adding product breadcrumb to breadcrumb list");
 		Breadcrumb breadcrumb = null;
 		try{
-			breadcrumb = BreadcrumbBuilder.getBreadcrumbs(model, path);
+			breadcrumb = BreadcrumbFactory.getBreadcrumbs(model, path);
 		}catch(NullPointerException npe){
 			LOG.debug("breadcrumb was not created. " + npe.getMessage());
 			return;

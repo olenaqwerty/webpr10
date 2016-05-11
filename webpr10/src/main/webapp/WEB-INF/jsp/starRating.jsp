@@ -2,19 +2,18 @@
 <%-- <%@ page language="java" import="javax.servlet.jsp.PageContext"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>  --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<link rel="stylesheet" href="jquery.rating.css">
-<script src="jquery.js"></script>
-<script src="jquery.rating.js"></script>
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 <section class="container">
-	<%-- <form:form modelAttribute="rating"
-		action="${pageContext.request.contextPath}/products/${product.productId}"
-		method="post" class="form-horizontal">
+
+	<form:form modelAttribute="starRating">
 		<fieldset>
 			<legend>Star rating</legend>
+			<div>Current star rating: ${product.avgStarRating}</div>
+			<form:errors path="*" cssClass="text-danger" element="div" />
 			<div class="form-group">
 				<label class="control-label col-lg-2" for="condition">Star
 					Rating</label>
@@ -38,5 +37,5 @@
 				</div>
 			</div>
 		</fieldset>
-	</form:form> --%>
+	</form:form>
 </section>

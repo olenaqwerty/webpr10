@@ -12,6 +12,13 @@ public interface ProductDao extends GenericDao<Product, Integer>{
 	
 	List<Product> getProductsByPriceRange(BigDecimal low, BigDecimal high);
 	
-	void addStarRating(StarRatingFormDto rating);
+	//void addStarRating(StarRatingFormDto rating, Integer productId);
 
+	Integer getStarRatingSum(Integer productId);
+
+	Integer getNumOfStarRatingVotes(Integer productId);
+	
+	void setNumOfStarRatingVotes(Integer numOfStarRatingVotes, Integer productId);
+	
+	void setRatingSum(Integer ratingSum, Integer productId);
 }

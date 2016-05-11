@@ -1,16 +1,23 @@
 package com.snapdeal.model;
 
-public class StarRatingFormDto {
+import javax.validation.constraints.NotNull;
 
-	public int getStarRatingValue() {
+import org.hibernate.validator.constraints.Range;
+
+public class StarRatingFormDto {
+	
+	@Range(min=1, max=5, message="rate value should be from 1 to 5")
+	@NotNull(message ="you need to rate this device")
+	private Integer starRatingValue;
+
+
+	public Integer getStarRatingValue() {
 		return starRatingValue;
 	}
 
 	public void setStarRatingValue(int starRatingValue) {
 		this.starRatingValue = starRatingValue;
 	}
-
-	private int starRatingValue;
 
 	public StarRatingFormDto() {
 		// TODO Auto-generated constructor stub

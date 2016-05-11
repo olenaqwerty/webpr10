@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.snapdeal.controller.BreadcrumbBuilder;
+import com.snapdeal.controller.BreadcrumbFactory;
 import com.snapdeal.controller.Pages;
 import com.snapdeal.model.Breadcrumb;
 
@@ -40,7 +40,7 @@ public class BreadcrumbInterceptor extends HandlerInterceptorAdapter {
 
 		Breadcrumb breadcrumb = null;
 		try {
-			breadcrumb = BreadcrumbBuilder.getBreadcrumbs(page, path);
+			breadcrumb = BreadcrumbFactory.getBreadcrumbs(page, path);
 		} catch (NullPointerException npe) {
 			LOG.debug("breadcrumb was not created. " + npe.getMessage());
 			return;
