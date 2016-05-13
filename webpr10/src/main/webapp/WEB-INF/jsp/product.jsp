@@ -6,37 +6,32 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<link rel="stylesheet" href="jquery.rating.css">
-<script src="jquery.js"></script>
-<script src="jquery.rating.js"></script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 <tiles:insertDefinition name="product">
 	<tiles:putAttribute name="body">
-		<section>
-		<!-- <div class="jumbotron">
-			<div class="container">
-				<h1>Products</h1>
-			</div>
-		</div> -->
-		</section>
 		<section class="container">
+		<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+			<div class="thumbnail">
+				<img src="<c:url value="/resources/images/1.jpg"></c:url>"
+					alt="image" />
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-5">
-				<h3>${product.productName}</h3>
+				<h3>${product.name}</h3>
 				<p>${product.productDescription}</p>
 				<p>
 					<strong>Item Code : </strong><span class="label labelwarning">${product.productId}</span>
 				</p>
-				<%-- <p>
+				<%--<p>
 					<strong>manufacturer</strong> : ${product.manufacturer}
-				</p> --%>
+				</p>
 				<p>
 					<strong>category</strong> : ${product.category.categoryName}
-				</p>
+				</p>--%>
 				<p>
 					<strong>Availble units in stock </strong> : ${product.qtyInStock}
 				</p>

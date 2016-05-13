@@ -3,7 +3,7 @@ package com.snapdeal.controller;
 import com.snapdeal.model.Breadcrumb;
 import com.snapdeal.model.GenericModel;
 
-public class BreadcrumbBuilder {
+public class BreadcrumbFactory {
 
 	// TOASK: would it be better to create parent model.
 	// product model and category model would inherit from parent model

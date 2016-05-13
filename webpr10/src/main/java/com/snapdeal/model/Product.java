@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 @NamedQueries({
 		@NamedQuery(name = "Product.getByPriceRange", query = "select p from Product p where p.productPrice >:low and p.productPrice <:high") })*/
 @Entity
-public class Product implements GenericModel{
+public class Product implements GenericModel {
 
 	@Column(name = "product_id")
 	@Id
@@ -33,6 +33,12 @@ public class Product implements GenericModel{
 	@Column(name = "qty_in_stock")
 	private int qtyInStock;
 
+	@Column(name = "starRatingSum")
+	private int starRatingSum;
+
+	@Column(name = "numOfStarRatingVotes")
+	private int numOfStarRatingVotes;
+
 	@ManyToOne
 	@JoinColumn(name = "vendor_id")
 	private Vendor vendor;
@@ -40,6 +46,9 @@ public class Product implements GenericModel{
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	private Category category;
+	
+	@SuppressWarnings("unused")
+	private Integer avgStarRating;
 
 	public Integer getProductId() {
 		return productId;
@@ -103,6 +112,31 @@ public class Product implements GenericModel{
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public int getStarRatingSum() {
+		return starRatingSum;
+	}
+
+	public void setStarRatingSum(int starRatingSum) {
+		this.starRatingSum = starRatingSum;
+	}
+
+	public int getNumOfStarRatingVotes() {
+		return numOfStarRatingVotes;
+	}
+
+	public void setNumOfStarRatingVotes(int numOfStarRatingVotes) {
+		this.numOfStarRatingVotes = numOfStarRatingVotes;
+	}
+	
+	
+	public Integer getAvgStarRating() {
+		return Math.round((float) getStarRatingSum() / getNumOfStarRatingVotes());
+	}
+
+	public void setAvgStarRating(Integer avgStarRating) {
+		this.avgStarRating = avgStarRating;
 	}
 
 	@Override

@@ -1,19 +1,14 @@
 package com.snapdeal.controller;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,43 +27,57 @@ public class ProductController extends AbstractPageController {
 	ProductService productService;
 
 	@RequestMapping(path = "/{productId}", method = RequestMethod.GET)
-	public String findProduct(@PathVariable String productId, Model model) {
-		int id = 0;
+	public String showProduct(HttpServletRequest request, @PathVariable String productId, Model model) {
+		LOG.info("entering showProduct()");
+		Integer id = 0;
 		try {
 			id = Integer.parseInt(productId);
 		} catch (NumberFormatException e) {
-			// throw new OrderNotFoundException(id);
+			LOG.warn("product id not a number");
+			return "welcome";
 		}
-		Product product = null;
-		product = productService.read(id);
-		// if (product == null) throw new OrderNotFoundException(id);
+
+		Product product = productService.read(id);
+		if (product == null) {
+			LOG.warn("product with id: " + productId + " was not found");
+			return "welcome";
+		}
 		model.addAttribute("product", product);
-		StarRatingFormDto rating = new StarRatingFormDto();
-		model.addAttribute("rating", rating);
+		StarRatingFormDto starRating = new StarRatingFormDto();
+		model.addAttribute("starRating", starRating);
 		return "product";
+	}
+
+	@RequestMapping(value = "/{productId}", method = RequestMethod.POST)
+	public String addStarRating(@Valid @ModelAttribute("starRating") StarRatingFormDto starRating,
+			BindingResult bindingResult, @PathVariable String productId, Model model) {
+
+		LOG.info("entering addStarRating()");
+
+		if (bindingResult.hasErrors()) {
+
+			Product product = productService.read(Integer.parseInt(productId));
+			if (product == null) {
+				LOG.warn("product with id: " + productId + " was not found");
+				return "welcome";
+			}
+			model.addAttribute("product", product);
+			return "product";
+		}
+
+		// TOASK: is it better to pass just productID or make a product?
+		// Product product = productService.read(Integer.parseInt(productId));
+		productService.setStarRating(starRating, Integer.valueOf(productId));
+		return "redirect:/products/{productId}";
+
 	}
 
 	@RequestMapping("/")
 	public String showProducts(HttpServletRequest request, Model model) {
-		LOG.debug("ProductController.showProducts");
+		LOG.debug("entering showProducts()");
 		addBreadcrumb(Pages.productsPage, request.getServletPath());
 		model.addAttribute("products", productService.getAll());
 		return "products";
-
-	}
-
-	/*
-	 * @RequestMapping(value = "/addStarRating", method = RequestMethod.GET)
-	 * public String getAddStarRating(Model model) { StarRatingFormDto rating =
-	 * new StarRatingFormDto(); model.addAttribute("rating", rating); return
-	 * "addProduct"; }
-	 */
-
-	@RequestMapping(value = "/{productId}", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("rating") StarRatingFormDto rating, Model model) {
-		productService.addStarRating(rating);
-		model.addAttribute("avgRating", rating.getStarRatingValue());
-		return "redirect:/product";
 	}
 
 	/*
