@@ -40,11 +40,17 @@ values('htc one m9',1 ,39.99, 1, 'An award-winning tradition continues: 20 MP ca
 ('Nokia Lumia 2520', 2, 70.00, 1, 'Enjoy a 10.1" Full HD display with enhanced screen readability', 4, 3, null, 10);
 
 
-INSERT INTO customers(customer_name, customer_surname, customer_phone, customer_address)
-values('bill', 'jonson', '1234567', 'Lviv, Franko str 6'),
-('jack', 'white', '1234567', 'Lviv, Franko str 5'),
-('sam', 'black', '1234567', 'Lviv, Franko str 4'),
-('ann', 'green', '1234567', 'Lviv, Franko str 3');
+INSERT INTO customers(customer_name, customer_email, customer_password)
+values('user1', 'user1', 'test'),
+('user2','user2', 'test'),
+('user3','user3', 'test');
+
+INSERT INTO user_roles (customer_id, role)
+VALUES (1, 'ROLE_USER');
+INSERT INTO user_roles (username, role)
+VALUES (2, 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES (3, 'ROLE_USER');
 
 INSERT INTO orders(customer_id, order_date, order_sent_date, total_order_price)
 VALUES

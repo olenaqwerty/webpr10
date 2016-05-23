@@ -78,14 +78,19 @@ customer_phone varchar(255) NOT NULL,
 customer_address varchar(255) NOT NULL,
 customer_email varchar(255) NOT NULL,
 customer_password varchar(255) NOT NULL,
+enabled TINYINT NOT NULL DEFAULT 1
 PRIMARY KEY (customer_id)
 );
 
 CREATE TABLE roles(
 id int NOT NULL AUTO_INCREMENT,
-name varchar(255) NOT NULL,
+role varchar(45) NOT NULL,
 customers_id int,
-PRIMARY KEY (id)
+customer_name VARCHAR(45) NOT NULL,
+PRIMARY KEY (id),
+UNIQUE KEY uni_username_role (role,username),
+KEY fk_username_idx (customer_name),
+CONSTRAINT fk_username FOREIGN KEY (customer_name) REFERENCES customers (customer_name));
 );
 
 CREATE TABLE currency(

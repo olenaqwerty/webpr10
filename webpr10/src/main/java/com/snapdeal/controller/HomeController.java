@@ -25,7 +25,7 @@ public class HomeController extends AbstractPageController{
 	@RequestMapping("/welcome")
 	public String showHomePage(HttpServletRequest request, Model model) {
         LOG.debug("HomeController.showHomePage");
-        addBreadcrumb(Pages.homePage, request.getRequestURL().toString());        
+       // addBreadcrumb(Pages.homePage, request.getRequestURL().toString());        
 		model.addAttribute("promotionDtos", promotionDtoService.loadPromotionDtos());
 		Integer phonesNum = productService.countAllPhones();
 		model.addAttribute("phonesNum", phonesNum);

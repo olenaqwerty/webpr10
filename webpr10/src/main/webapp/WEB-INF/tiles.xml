@@ -22,4 +22,8 @@
 	<definition name="products" extends="base.definition">
 	<put-attribute name="title" value="products" />
 	</definition>
+	
+	<definition name="login" extends="base.definition">
+	<put-attribute name="title" value="login" />
+	</definition>
 </tiles-definitions>

@@ -75,7 +75,7 @@ public class ProductController extends AbstractPageController {
 	@RequestMapping("/")
 	public String showProducts(HttpServletRequest request, Model model) {
 		LOG.debug("entering showProducts()");
-		addBreadcrumb(Pages.productsPage, request.getServletPath());
+		//addBreadcrumb(Pages.productsPage, request.getServletPath());
 		model.addAttribute("products", productService.getAll());
 		return "products";
 	}

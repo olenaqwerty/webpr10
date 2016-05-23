@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.snapdeal.model.Breadcrumb;
 import com.snapdeal.model.GenericModel;
 
-@SessionAttributes("breadcrumbs")
+//@SessionAttributes("breadcrumbs")
 public abstract class AbstractPageController {
 	
-	private static List<Breadcrumb> breadcrumbs = new ArrayList<>();
+	//private static List<Breadcrumb> breadcrumbs = new ArrayList<>();
 
 	private final static Logger LOG = LogManager.getLogger(AbstractPageController.class);
 	
-	@ModelAttribute("breadcrumbs")
+	/*@ModelAttribute("breadcrumbs")
     public  List<Breadcrumb> getBreadcrumbs () {
         return  breadcrumbs;
-    }
+    }*/
 	
-	public void addBreadcrumb(Pages page, String path) {
+	/*public void addBreadcrumb(Pages page, String path) {
 		LOG.debug("adding product breadcrumb to breadcrumb list");
 		Breadcrumb breadcrumb = null;
 		try{
@@ -45,5 +45,5 @@ public abstract class AbstractPageController {
 			return;
 		}
 		breadcrumbs.add(breadcrumb);
-	}
+	}*/
 }
