@@ -25,14 +25,15 @@ public class HomeController extends AbstractPageController{
 	@RequestMapping("/welcome")
 	public String showHomePage(HttpServletRequest request, Model model) {
         LOG.debug("HomeController.showHomePage");
-       // addBreadcrumb(Pages.homePage, request.getRequestURL().toString());        
 		model.addAttribute("promotionDtos", promotionDtoService.loadPromotionDtos());
 		Integer phonesNum = productService.countAllPhones();
 		model.addAttribute("phonesNum", phonesNum);
-		/*
-		 * List<Product> list = productService.getAll();
-		 * System.out.println(list.get(0));
-		 */
+		
 		return "welcome";
+	}
+	
+	@RequestMapping("/exception")
+	public String showHomePage2(HttpServletRequest request, Model model) throws Exception {
+		throw new Exception("some text of exception");
 	}
 }

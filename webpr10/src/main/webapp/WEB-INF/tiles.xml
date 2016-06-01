@@ -26,4 +26,8 @@
 	<definition name="login" extends="base.definition">
 	<put-attribute name="title" value="login" />
 	</definition>
+	
+	<definition name="error" extends="base.definition">
+	<put-attribute name="title" value="error" />
+	</definition>
 </tiles-definitions>
